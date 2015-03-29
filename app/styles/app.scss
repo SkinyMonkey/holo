@@ -1,0 +1,96 @@
+@import "bower_components/bourbon/app/assets/stylesheets/bourbon";
+@import "bower_components/neat/app/assets/stylesheets/neat";
+
+$debug : true;
+$height : 250px;
+
+body {
+  @if $debug == false {
+    background-color: #000;
+  }
+  @else {
+    background-color: #FFF;
+  }
+}
+
+@mixin debug($color) {
+  @if $debug == true {
+    background-color: $color;
+  }
+}
+
+section {
+  @include outer-container;
+  .lh {
+    @include span-columns(4);
+    @include debug(#00F);
+    height: $height;
+  }
+
+  .rh {
+    @include span-columns(8);
+    @include omega();
+    @include debug(#0FF);
+    height: $height;
+  }
+
+  .gap {
+    @include span-columns(1);
+    @include debug(#F0F);
+    height: $height;
+  }
+
+  .lv {
+    @include span-columns(6);
+    @include omega();
+    @include debug(#FF0);
+    height: $height;
+    width: 528px;
+    padding-left: 28px;
+  }
+
+  .rv {
+    @include span-columns(2);
+    @include omega();
+    height: $height;
+    @include debug(#000);
+  }
+}
+
+$right : 90deg;
+$down : 180deg;
+$left : 270deg;
+
+$width : $height;
+
+@mixin img-size() { 
+  height: $height;
+  width: $width;
+}
+
+@mixin img-orientation($orientation) {
+  -moz-transform:rotate($orientation);
+  -webkit-transform:rotate($orientation);
+  -o-transform:rotate($orientation);
+  -ms-transform:rotate($orientation);
+  transform:rotate($orientation);
+}
+
+.up {
+  @include img-size();
+}
+
+.right {
+  @include img-size();
+  @include img-orientation($right);
+}
+
+.down {
+  @include img-size();
+  @include img-orientation($down);
+}
+
+.left {
+  @include img-size();
+  @include img-orientation($left);
+}
