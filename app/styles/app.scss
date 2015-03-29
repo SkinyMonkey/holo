@@ -1,8 +1,10 @@
 @import "bower_components/bourbon/app/assets/stylesheets/bourbon";
 @import "bower_components/neat/app/assets/stylesheets/neat";
 
-$debug : true;
-$height : 250px;
+$debug : false;
+
+$WINDOW_WIDTH : 1280px;
+$IMG_WIDTH : 250px;
 
 body {
   @if $debug == false {
@@ -20,40 +22,46 @@ body {
 }
 
 section {
-  @include outer-container;
   .lh {
-    @include span-columns(4);
+    float: left;
     @include debug(#00F);
-    height: $height;
+    height: $IMG_WIDTH;
+    width: ($WINDOW_WIDTH / 2) - ($IMG_WIDTH / 2);
   }
 
   .rh {
-    @include span-columns(8);
-    @include omega();
+    float: left;
     @include debug(#0FF);
-    height: $height;
+    height: $IMG_WIDTH;
+    width: $IMG_WIDTH;
   }
 
-  .gap {
-    @include span-columns(1);
+  .lgap {
+    float: left;
     @include debug(#F0F);
-    height: $height;
+    height: $IMG_WIDTH;
+    width: ($WINDOW_WIDTH / 2) - ($IMG_WIDTH / 2) - $IMG_WIDTH;
+  }
+
+  .rgap {
+    float: left;
+    @include debug(#F0F);
+    width : ($WINDOW_WIDTH / 2) - 230px;
+    height: 250px;
   }
 
   .lv {
-    @include span-columns(6);
-    @include omega();
+    float: left;
     @include debug(#FF0);
-    height: $height;
-    width: 528px;
-    padding-left: 28px;
+    height: $IMG_WIDTH;
+    width: 500px;
   }
 
   .rv {
-    @include span-columns(2);
-    @include omega();
-    height: $height;
+    float: left;
+    height: $IMG_WIDTH;
     @include debug(#000);
+    width: $IMG_WIDTH;
   }
 }
 
@@ -61,10 +69,10 @@ $right : 90deg;
 $down : 180deg;
 $left : 270deg;
 
-$width : $height;
+$width : $IMG_WIDTH;
 
 @mixin img-size() { 
-  height: $height;
+  height: $IMG_WIDTH;
   width: $width;
 }
 
