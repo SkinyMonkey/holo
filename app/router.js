@@ -6,6 +6,8 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('holo', {path: '/'});
+  this.route('mobile', {path: '/mobile'});
 });
 
 export default Router;

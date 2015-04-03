@@ -47,14 +47,14 @@ section {
     float: left;
     @include debug(#F0F);
     width : ($WINDOW_WIDTH / 2) - 230px;
-    height: 250px;
+    height: $IMG_WIDTH;
   }
 
   .lv {
     float: left;
     @include debug(#FF0);
     height: $IMG_WIDTH;
-    width: 500px;
+    width: $IMG_WIDTH * 2;
   }
 
   .rv {
